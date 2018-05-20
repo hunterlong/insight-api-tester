@@ -1,7 +1,7 @@
 var assert = require('assert');
 var request = require('request');
 
-const insight = "http://localhost:3001/api";
+const insight = process.env.API;
 
 describe('Test Balances on Insight API', function() {
 
