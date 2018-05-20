@@ -50,6 +50,16 @@ describe('Test Balances on Insight API', function() {
         });
     });
 
+
+    describe('fetch transactions for address #1', function () {
+        it('should be transactions for address', function (done) {
+            request(insight + "/txs/?address=mnJQyeDFmGjNoxyxKQC6MMFdpx77rYV3Bo", function (error, response, body) {
+                assert.equal(3, JSON.parse(body).txs.length);
+                done();
+            });
+        });
+    });
+
 });
 
 
@@ -102,5 +112,21 @@ describe('Test UTXOs on Insight API', function() {
         });
     });
 
+
+});
+
+
+
+
+describe('Get Insight API Information', function() {
+
+    describe('fetch information on server', function () {
+        it('should be valid info', function (done) {
+            request(insight + "/status?q=getInfo", function (error, response, body) {
+                assert.equal("regtest", JSON.parse(body).info.network);
+                done();
+            });
+        });
+    });
 
 });
