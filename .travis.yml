@@ -12,8 +12,7 @@ services:
   - docker
 
 before_install:
-  - docker pull hunterlong/btctest-insight
-  - docker run -it -d -p 3001:3001 hunterlong/btctest-insight:latest
+  - docker run -it -d -p 3001:3001 hunterlong/btcregtest-insight:latest
 
 script:
   - sleep 30
